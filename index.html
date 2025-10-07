@@ -15,8 +15,10 @@
           document.getElementById("ex1_button").addEventListener("click", function() {
             let wynik = "";
             for (let i = 0; i < 10; i++) {
-              if 
-              wynik += i + ',';
+              if (i == 9)
+                wynik += i;
+              else
+                wynik += i + ',';
             }
             this.innerText = wynik;
           });
