@@ -1,50 +1,77 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="style.css"/>
-    <title>repl.it</title>
-  </head>
-  <body>
-    <div>
-      <div id="ex1" class="ex">
-        <h5>Ex1 - OnClick</h5>
-        <button id="ex1_button">Click me</button>
-        <script>
-          document.getElementById("ex1_button").addEventListener("click", function() {
-            let wynik = "";
-            for (let i = 0; i < 10; i++) {
-              if (i == 9)
-                wynik += i;
-              else
-                wynik += i + ',';
-            }
-            this.innerText = wynik;
-          });
 
-        </script>
-        <div id="ex1_content"></div>
-      </div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="style.css" />
+  <title>repl.it</title>
+</head>
 
-      <div id="ex2" class="ex">
-        <h5>Ex2 - Validation</h5>
-        <input type="text" id="ex2_text" placeholder="phone number" />
-        <div id="ex2_content"></div>
-      </div>
+<body>
+  <div>
+    <div id="ex1" class="ex">
+      <h5>Ex1 - OnClick</h5>
+      <button id="ex1_button">Click me</button>
+      <script>
+        document.getElementById("ex1_button").addEventListener("click", function () {
+          let wynik = "";
+          for (let i = 0; i < 10; i++) {
+            if (i == 9)
+              wynik += i;
+            else
+              wynik += i + ',';
+          }
+          this.innerText = wynik;
+        });
 
-      <div id="ex3" class="ex">
-        <h5>Ex3 - Drag&Drop</h5>
-        <div>
-          <div id="ex3_one">
-            <div id="ex3_element">Content</div>
-          </div>
-          <div id="ex3_two"></div>
-        </div>
-      </div>
-
-
+      </script>
+      <div id="ex1_content"></div>
     </div>
-    <script src="script.js"></script>
-  </body>
+
+    <div id="ex2" class="ex">
+      <h5>Ex2 - Validation</h5>
+      <input type="text" id="ex2_text" placeholder="phone number" />
+      <div id="ex2_content">
+        <script>
+          document.getElementById("ex2_text").addEventListener("input", function () {
+            let tekst = this.value;
+            const komunikatElement = document.getElementById("ex2_content");
+
+            if (tekst.length !== 9) {
+              komunikatElement.innerText = "Długość numeru musi być równa 9";
+              return;
+            }
+
+            if (/[a-zA-Z]/.test(tekst)) {
+              komunikatElement.innerText = "Numer nie może zawierać liter";
+              return;
+            }
+
+            if (/[^0-9]/.test(tekst)) {
+              komunikatElement.innerText = "Numer nie może zawierać znaków specjalnych";
+              return;
+            }
+
+            komunikatElement.innerText = "Numer jest poprawny";
+          });
+        </script>
+      </div>
+    </div>
+
+    <div id="ex3" class="ex">
+      <h5>Ex3 - Drag&Drop</h5>
+      <div>
+        <div id="ex3_one">
+          <div id="ex3_element">Content</div>
+        </div>
+        <div id="ex3_two"></div>
+      </div>
+    </div>
+
+
+  </div>
+  <script src="script.js"></script>
+</body>
+
 </html>
