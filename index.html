@@ -11,6 +11,17 @@
       <div id="ex1" class="ex">
         <h5>Ex1 - OnClick</h5>
         <button id="ex1_button">Click me</button>
+        <script>
+          document.getElementById("ex1_button").addEventListener("click", function() {
+            let wynik = "";
+            for (let i = 0; i < 10; i++) {
+              if 
+              wynik += i + ',';
+            }
+            this.innerText = wynik;
+          });
+
+        </script>
         <div id="ex1_content"></div>
       </div>
 
